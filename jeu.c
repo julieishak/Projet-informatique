@@ -19,19 +19,19 @@
 
 char grille[HAUTEUR][LARGEUR];		//Déclaration de la variable globale grille (matrice de taille HAUTEUR*LARGEUR) utilisé dans la majorité des sous-programme de ce module
 
-eliminerSuiteEnLigne(int ligne, int colonne, int taille) {
+void eliminerSuiteEnLigne(int ligne, int colonne, int taille) {
 	for (int i=0; i<taille; i++) {                      
 		grille[ligne][colonne + i] = 0; //Parcourir les cases de la suite de gauche à droite
 	}	
 }
 
-eliminerSuiteEnColonne(int ligne, int colonne, int taille) {
+void eliminerSuiteEnColonne(int ligne, int colonne, int taille) {
 	for (int i=0; i<taille; i++) {
 		grille[ligne + i][colonne] = 0; //Parcourir les cases de la suite de haut en bas et affecter 0 à chacune de ces cases
 	}	
 }
 
-eliminerCarre (int ligne, int colonne) {
+void eliminerCarre (int ligne, int colonne) {
 	for (int i=0; i<TAILLE_CARRE; i++) {
 		grille[ligne][colonne + i] = 0;                 //Parcourir la ligne la plus haute du carre de gauche à droite et affecter 0 à chacune de ces cases
 		grille[ligne+TAILLE_CARRE-1][colonne + i] = 0;  //Parcourir la ligne la plus basse du carre de gauche à droite et affecter 0 à chacune de ces cases
@@ -42,7 +42,7 @@ eliminerCarre (int ligne, int colonne) {
 	}
 }
 
-eliminerCroix (int ligne, int colonne) {
+void eliminerCroix (int ligne, int colonne) {
 	for (int i=0; i<TAILLE_CROIX; i++) {
 		grille[ligne][colonne + i - 2] = 0;				//Se placer au centre de la croix, aller 2 cases vers la gauche et parcourir les cases de gauche à droite en affectant 0 à chacune de ces cases
 	}	
@@ -51,7 +51,7 @@ eliminerCroix (int ligne, int colonne) {
 	}	
 }
 
-eliminerFigure (int type, int ligne, int colonne, int taille) {			//Elimine la fonction adéquate en fonction du type de la figure
+void eliminerFigure (int type, int ligne, int colonne, int taille) {			//Elimine la fonction adéquate en fonction du type de la figure
 	switch(type) {															
 	case SUITE_LIGNE : eliminerSuiteEnLigne (ligne, colonne, taille);
 		break;
@@ -64,7 +64,7 @@ eliminerFigure (int type, int ligne, int colonne, int taille) {			//Elimine la f
 	}
 }
 
-melangerItems() {									//Echange les coordonnées de deux items choisis aléatoirement
+void melangerItems() {									//Echange les coordonnées de deux items choisis aléatoirement
 	int l1, int c1, int l2, int c2, int temp;
 	l1 = rand() % HAUTEUR;
 	l2 = rand() % HAUTEUR;
