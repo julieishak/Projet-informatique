@@ -1,1 +1,1 @@
-lancerNiveau(int xcurseur, int ycurseur, int temps_restant);
+void lancerNiveau(int xcurseur, int ycurseur, int temps_restant);
